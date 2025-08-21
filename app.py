@@ -9,10 +9,10 @@ st.set_page_config(page_title="Food Waste Management", page_icon="🍽️", layo
 # =========================
 @st.cache_data
 def load_data():
-    providers = pd.read_csv("data/providers_data.csv")        # Provider_ID,Name,Type,Address,City,Contact
-    receivers = pd.read_csv("data/receivers_data.csv")        # Receiver_ID,Name,Type,City,Contact
-    food_listings = pd.read_csv("data/food_listings_data.csv")# Food_ID,Food_Name,Quantity,Expiry_Date,Provider_ID,Provider_Type,Location,Food_Type,Meal_Type
-    claims = pd.read_csv("data/claims_data.csv")              # Claim_ID,Food_ID,Receiver_ID,Status,Timestamp
+    providers = pd.read_csv("providers_data.csv")        # Provider_ID,Name,Type,Address,City,Contact
+    receivers = pd.read_csv("receivers_data.csv")        # Receiver_ID,Name,Type,City,Contact
+    food_listings = pd.read_csv("food_listings_data.csv")# Food_ID,Food_Name,Quantity,Expiry_Date,Provider_ID,Provider_Type,Location,Food_Type,Meal_Type
+    claims = pd.read_csv("claims_data.csv")              # Claim_ID,Food_ID,Receiver_ID,Status,Timestamp
 
     # Normalize/parse dates that exist
     if "Expiry_Date" in food_listings.columns:
@@ -313,3 +313,4 @@ elif page == "Food Listings":
     page_food_listings(food_listings)
 elif page == "Claims":
     page_claims(claims, food_listings, receivers)
+
